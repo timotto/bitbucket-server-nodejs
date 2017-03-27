@@ -96,6 +96,20 @@ To get branches from a user repo rather than a project repo, use user's slug as 
 client.branches.get('~userslug', repoKey); // Promise
 ```
 
+### tags
+
+Get all tags for a repo.
+
+```
+client.tags.get(projectKey, repoKey); // Promise
+```
+
+To get tags from a user repo rather than a project repo, use user's slug as the project key, prepended by '~'.
+
+```
+client.tags.get('~userslug', repoKey); // Promise
+```
+
 ### pull requests
 
 Get all pull requests for a repo.
@@ -191,3 +205,4 @@ client.users.getUser(userSlug); // Promise
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/pull-requests [GET]
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/settings/hooks [GET]
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/settings/hooks/{hookKey}/enabled [PUT]
+ - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/tags [GET]
