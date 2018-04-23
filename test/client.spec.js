@@ -243,5 +243,48 @@ describe('Client', function () {
         });
     });
   });
+
+  describe('should set request params properly with a DELETE request', function () {
+    var requestDelete;
+
+    beforeEach(function () {
+      requestDelete = sinon.stub(request, 'delete');
+      requestDelete.returns(Promise.resolve());
+    });
+
+    afterEach(function () {
+      requestDelete.restore();
+    });
+
+    it('should set uri and auth params properly', function (done) {
+      var client = new BitbucketClient(baseUrl, auth);
+
+      client.delete('repo/1')
+        .then(function () {
+          assert.equal(requestDelete.getCall(0).args[ 0 ].uri,
+            'http://localhost/repo/1');
+
+          assert.equal(requestDelete.getCall(0).args[ 0 ].auth,
+            auth);
+
+          done();
+        });
+    });
+
+    it('should set uri and oauth params properly', function (done) {
+      var bitbucketClient2 = new BitbucketClient(baseUrl, oauth);
+
+      bitbucketClient2.delete('repo/1')
+        .then(function () {
+          assert.equal(requestDelete.getCall(0).args[ 0 ].uri,
+            'http://localhost/repo/1');
+
+          assert.equal(requestDelete.getCall(0).args[ 0 ].oauth,
+            oauth);
+
+          done();
+        });
+    });
+  });
 });
 
