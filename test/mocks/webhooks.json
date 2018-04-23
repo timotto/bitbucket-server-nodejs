@@ -1,0 +1,23 @@
+{
+    "size": 1,
+    "limit": 25,
+    "isLastPage": true,
+    "values": [
+        {
+            "id": 10,
+            "name": "trigger-ci",
+            "createdDate": 1513106011000,
+            "updatedDate": 1513106011000,
+            "events": [
+                "repo:refs_changed",
+                "repo:modified"
+            ],
+            "configuration": {
+                "secret": "expected-secret"
+            },
+            "url": "https://test.example.com/webhook/path",
+            "active": true
+        }
+    ],
+    "start": 0
+}
