@@ -5,6 +5,8 @@ require('./repos/getAll.spec');
 require('./prs/get.spec');
 require('./hooks/get.spec');
 require('./hooks/post.spec');
+require('./webhooks/get.spec');
+require('./webhooks/post.spec');
 require('./branches/get.spec');
 require('./tags/get.spec');
 require('./users/get.spec');

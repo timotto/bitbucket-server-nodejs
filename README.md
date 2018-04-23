@@ -170,6 +170,32 @@ Get details for a single hook.
 client.hooks.getHook(projectKey, repoSlug, hookKey); // Promise
 ```
 
+### webhooks
+
+Get all webhooks for a repo.
+
+```
+client.webhooks.get(projectKey, repoSlug); // Promise
+```
+
+Create a single webhook.
+
+```
+client.webhooks.createWebhook(projectKey, repoSlug, webhookDetails); // Promise
+```
+
+Get details for a single webhook.
+
+```
+client.webhooks.getWebhook(projectKey, repoSlug, webhookId); // Promise
+```
+
+Delete a single webhook.
+
+```
+client.webhooks.deleteWebhook(projectKey, repoSlug, webhookId); // Promise
+```
+
 ### settings
 
 Get user's settings. Username and Password must be valid.
@@ -205,4 +231,6 @@ client.users.getUser(userSlug); // Promise
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/pull-requests [GET]
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/settings/hooks [GET]
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/settings/hooks/{hookKey}/enabled [PUT]
+ - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/webhooks [GET,POST]
+ - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/webhooks/{webhookId} [GET,DELETE]
  - /rest/api/1.0/projects/{projectKey}/repos/{repositorySlug}/tags [GET]
